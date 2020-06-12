@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
+import { FiChevronDown } from "react-icons/fi";
 function Header() {
   return (
     <Fragment>
@@ -7,7 +8,12 @@ function Header() {
         <MainBox>
           <Logo href="/" />
           <LinkBox>
-            <Link></Link>
+            <Link>
+              <Icons>
+                <Icon />
+                <FiChevronDown size={16} />
+              </Icons>
+            </Link>
             <Link>숙소 호스트 되기</Link>
             <Link>체험 호스팅하기</Link>
             <Link>도움말</Link>
@@ -21,6 +27,19 @@ function Header() {
 }
 
 export default Header;
+const Icons = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const Icon = styled.div`
+  width: 16px;
+  height: 16px;
+  background-size: 100% auto;
+  background-image: url("https://toppng.com/uploads/preview/globe-earth-icon-icon-internet-free-11553469590q0vs340qlw.png");
+  background-color: transparent;
+  margin-right: 5px;
+`;
+
 const SignUp = styled.div`
   cursor: pointer;
   display: flex;
@@ -47,7 +66,7 @@ const Link = styled.div`
   justify-content: center;
   align-items: center;
   height: 42px;
-  min-width: 20px;
+  width: auto;
   border-radius: 22px;
   font-size: 14px;
   font-weight: bold;
@@ -76,8 +95,8 @@ const Logo = styled.a`
 const HeaderContainer = styled.div`
   height: 80px;
   width: 100%;
-  border: 2px dashed red;
-  box-sizing: border-box;
+  /* border: 2px dashed red;
+  box-sizing: border-box; */
   padding: 0px 80px;
 `;
 
