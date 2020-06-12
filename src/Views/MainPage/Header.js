@@ -81,7 +81,7 @@ const LinkBox = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  min-width: 500px;
+  width: auto;
 `;
 const Logo = styled.a`
   cursor: pointer;
@@ -95,8 +95,8 @@ const Logo = styled.a`
 const HeaderContainer = styled.div`
   height: 80px;
   width: 100%;
-  /* border: 2px dashed red;
-  box-sizing: border-box; */
+  border: 2px dashed red;
+  box-sizing: border-box;
   padding: 0px 80px;
 `;
 
@@ -105,5 +105,5 @@ const MainBox = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  width: auto;
+  width: 1000px;
 `;
