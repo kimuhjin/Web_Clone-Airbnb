@@ -19,7 +19,7 @@ function Explore() {
 
 export default Explore;
 const TitleBox = styled.div`
-  width: 480px;
+  width: 600px;
   height: 100%;
   /* border: 1px solid blue; */
 `;
@@ -27,7 +27,7 @@ const TitleContainer = styled.div`
   padding: 0px 80px;
 `;
 const Title = styled.div`
-  font-size: 42px;
+  font-size: 50px;
   color: rgb(146, 23, 77);
 `;
 

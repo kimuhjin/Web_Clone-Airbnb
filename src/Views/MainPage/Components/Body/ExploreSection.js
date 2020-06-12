@@ -7,7 +7,7 @@ function ExploreSection() {
       Title: "가까운 여행지",
       Article: "자동차로 금방 다녀올 수 있는 근교 여행지에서 휴식을 즐기세요.",
       Img_url:
-        "https://a0.muscache.com/im/pictures/5924e9ef-fc40-439e-966a-1c76a634152a.jpg?im_w=320",
+        "https://a0.muscache.com/im/pictures/5924e9ef-fc40-439e-966a-1c76a634152a.jpg?im_w=720",
     },
     {
       Title: "나만의 공간",
@@ -58,12 +58,14 @@ const TextContainer = styled.div`
   width: auto;
 `;
 const Image = styled.div`
-  height: 164px;
-  width: 100%;
+  /* height: 164px;
+  width: 246px; */
+  min-height: 164px;
   background-image: url(${(props) => props.src});
-  background-size: 100% auto;
-  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  /* border: 1px red solid; */
 `;
 const Title = styled.div`
   font-size: 18px;
@@ -76,9 +78,10 @@ const Article = styled.div`
   color: #717171;
 `;
 const CardContainer = styled.div`
-  cursor: pointer;
+  flex: 1;
   height: 266px;
-  width: 252px;
+  width: 100%;
+
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   overflow: hidden;
@@ -94,6 +97,6 @@ const SectionContainer = styled.div`
   width: 100%;
 `;
 const ExploreSectionContainer = styled.div`
-  margin-top: 20px;
+  margin-top: 80px;
   padding: 0px 80px;
 `;
