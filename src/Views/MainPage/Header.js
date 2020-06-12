@@ -32,6 +32,7 @@ const SignUp = styled.div`
   border: 1px solid #f7f7f7;
   font-size: 14px;
   font-weight: bold;
+  color: #222222;
   padding: 0 15px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
   &:hover {
@@ -51,6 +52,7 @@ const Link = styled.div`
   font-size: 14px;
   font-weight: bold;
   padding: 0 15px;
+  color: #222222;
   &:hover {
     background-color: #f7f7f7;
   }
