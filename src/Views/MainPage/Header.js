@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import styled from "styled-components";
 import { FiChevronDown } from "react-icons/fi";
+
 import More from "./Components/Header/More";
 function Header({ scroll }) {
   const [Language, setLanguage] = useState(false);
@@ -10,7 +11,7 @@ function Header({ scroll }) {
   return (
     <Fragment>
       {/*<More scroll={scroll} />*/}
-      <HeaderContainer>
+      <HeaderContainer scroll={scroll}>
         <MainBox>
           <Logo href="/" />
           <LinkBox>
@@ -110,9 +111,12 @@ const HeaderContainer = styled.div`
   border: 2px dashed transparent;
   box-sizing: border-box;
   background-color: white;
-  border-bottom: 1px solid #f7f7f7;
+  /* border-bottom: ${(props) =>
+    props.scroll > 10 ? "" : "1px solid #f7f7f7"}; */
   padding: 0px 80px;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
+  transition:box-shadow 0.2s ease-in-out;
+  box-shadow: ${(props) =>
+    props.scroll > 10 ? "0px 1px 2px rgba(0, 0, 0, 0.18)" : ""};;
   position: fixed;
   height: 80px;
   width: 100%;

@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import styled from "styled-components";
+import { FiSearch } from "react-icons/fi";
 function SearchPanel() {
   const [click1, setClick1] = useState(false);
   const [click2, setClick2] = useState(false);
@@ -38,7 +39,12 @@ function SearchPanel() {
         </Panel>
 
         <ButtonContainer>
-          <Button>검색</Button>
+          <Button>
+            <IconBox>
+              <FiSearch size={18} />
+            </IconBox>
+            검색
+          </Button>
         </ButtonContainer>
       </SearchPanelContainer>
     </Fragment>
@@ -46,7 +52,10 @@ function SearchPanel() {
 }
 
 export default SearchPanel;
-
+const IconBox = styled.div`
+  color: white;
+  margin-right: 4px;
+`;
 const Logic = styled.div`
   width: 100%;
   height: 100%;

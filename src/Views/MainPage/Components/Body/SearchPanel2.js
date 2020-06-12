@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import styled from "styled-components";
-function SearchPanel({ PanelChange }) {
+import { FiSearch } from "react-icons/fi";
+function SearchPanel() {
   const [click1, setClick1] = useState(false);
   const [click2, setClick2] = useState(false);
   const [click3, setClick3] = useState(false);
@@ -19,11 +20,7 @@ function SearchPanel({ PanelChange }) {
     setClick2(false);
     setClick3(true);
   };
-  const onReset = () => {
-    setClick1(false);
-    setClick2(false);
-    setClick3(false);
-  };
+
   return (
     <Fragment>
       <SearchPanelContainer>
@@ -35,14 +32,19 @@ function SearchPanel({ PanelChange }) {
           <Value>체크인/체크아웃</Value>
           <Logic>날짜 추가</Logic>
         </Panel>
-        {!PanelChange && (
-          <Panel onClick={onclick3} click={click3}>
-            <Value>인원</Value>
-            <Logic>게스트 추가</Logic>
-          </Panel>
-        )}
+
+        <Panel onClick={onclick3} click={click3}>
+          <Value>인원</Value>
+          <Logic>게스트 추가</Logic>
+        </Panel>
+
         <ButtonContainer>
-          <Button>검색</Button>
+          <Button>
+            <IconBox>
+              <FiSearch size={18} />
+            </IconBox>
+            검색
+          </Button>
         </ButtonContainer>
       </SearchPanelContainer>
     </Fragment>
@@ -50,7 +52,10 @@ function SearchPanel({ PanelChange }) {
 }
 
 export default SearchPanel;
-
+const IconBox = styled.div`
+  color: white;
+  margin-right: 4px;
+`;
 const Logic = styled.div`
   width: 100%;
   height: 100%;
