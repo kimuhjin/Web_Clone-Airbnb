@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import styled from "styled-components";
-function SearchPanel() {
+function SearchPanel({ PanelChange }) {
   const [click1, setClick1] = useState(false);
   const [click2, setClick2] = useState(false);
   const [click3, setClick3] = useState(false);
@@ -19,6 +19,11 @@ function SearchPanel() {
     setClick2(false);
     setClick3(true);
   };
+  const onReset = () => {
+    setClick1(false);
+    setClick2(false);
+    setClick3(false);
+  };
   return (
     <Fragment>
       <SearchPanelContainer>
@@ -30,10 +35,12 @@ function SearchPanel() {
           <Value>체크인/체크아웃</Value>
           <Logic>날짜 추가</Logic>
         </Panel>
-        <Panel onClick={onclick3} click={click3}>
-          <Value>인원</Value>
-          <Logic>게스트 추가</Logic>
-        </Panel>
+        {!PanelChange && (
+          <Panel onClick={onclick3} click={click3}>
+            <Value>인원</Value>
+            <Logic>게스트 추가</Logic>
+          </Panel>
+        )}
         <ButtonContainer>
           <Button>검색</Button>
         </ButtonContainer>
@@ -95,7 +102,7 @@ const Panel = styled.div`
 
 const SearchPanelContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex: 7;
   height: 70px;
@@ -108,7 +115,7 @@ const SearchPanelContainer = styled.div`
 
 const ButtonContainer = styled.div`
   display: flex;
-  flex: 1;
+  padding: 11px;
   justify-content: center;
   align-items: center;
 `;

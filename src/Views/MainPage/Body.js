@@ -14,8 +14,9 @@ function Body() {
 export default Body;
 
 const BodyContainer = styled.div`
+  margin-top: 80px;
   min-height: 600px;
   width: 100%;
-  border: 2px dashed blue;
+  border: 2px dashed transparent;
   box-sizing: border-box;
 `;

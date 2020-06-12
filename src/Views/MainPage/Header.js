@@ -1,18 +1,25 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import styled from "styled-components";
 import { FiChevronDown } from "react-icons/fi";
-function Header() {
+import More from "./Components/Header/More";
+function Header({ scroll }) {
+  const [Language, setLanguage] = useState(false);
+  const onclick = () => {
+    setLanguage(!Language);
+  };
   return (
     <Fragment>
+      {/*<More scroll={scroll} />*/}
       <HeaderContainer>
         <MainBox>
           <Logo href="/" />
           <LinkBox>
-            <Link>
+            <Link onClick={onclick}>
               <Icons>
                 <Icon />
                 <FiChevronDown size={16} />
               </Icons>
+              {/*<LanguageBox />*/}
             </Link>
             <Link>숙소 호스트 되기</Link>
             <Link>체험 호스팅하기</Link>
@@ -27,6 +34,11 @@ function Header() {
 }
 
 export default Header;
+const LanguageBox = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: red;
+`;
 const Icons = styled.div`
   display: flex;
   justify-content: space-between;
@@ -63,6 +75,8 @@ const SignUp = styled.div`
 const Link = styled.div`
   cursor: pointer;
   display: flex;
+  /* flex-direction: column; */
+
   justify-content: center;
   align-items: center;
   height: 42px;
@@ -93,11 +107,17 @@ const Logo = styled.a`
   background-repeat: no-repeat;
 `;
 const HeaderContainer = styled.div`
+  border: 2px dashed transparent;
+  box-sizing: border-box;
+  background-color: white;
+  border-bottom: 1px solid #f7f7f7;
+  padding: 0px 80px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
+  position: fixed;
   height: 80px;
   width: 100%;
-  border: 2px dashed red;
-  box-sizing: border-box;
-  padding: 0px 80px;
+  top: 0;
+  z-index: 10;
 `;
 
 const MainBox = styled.div`
@@ -105,5 +125,7 @@ const MainBox = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  width: 1000px;
+  width: 100%;
+  /* border: 2px dashed red;
+  box-sizing: border-box; */
 `;

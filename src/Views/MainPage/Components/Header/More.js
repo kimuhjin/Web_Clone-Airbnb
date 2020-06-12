@@ -8,14 +8,14 @@ function More() {
           코로나19에 대한 에어비앤비의 대책 및 환불 정책에 대한 최신 정보를
           확인하세요.
         </Text>
-        <Text_Link>자세히 알아보기</Text_Link>
+        <TextLink>자세히 알아보기</TextLink>
       </MoreContainer>
     </Fragment>
   );
 }
 
 export default More;
-const Text_Link = styled.div`
+const TextLink = styled.div`
   font-size: 14px;
   font-weight: bold;
   text-decoration: underline;
@@ -32,6 +32,7 @@ const MoreContainer = styled.div`
   height: 58px;
   width: 100%;
   background-color: #f7f7f7;
+  /* display: ${(props) => (props.scroll > 58 ? "none" : "")}; */
   /* border: 2px dashed black;
   box-sizing: border-box; */
 `;
