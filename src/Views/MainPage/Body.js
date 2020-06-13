@@ -23,6 +23,6 @@ const BodyContainer = styled.div`
   min-height: 1000px;
   height: 100%;
   width: 100%;
-  border: 2px dashed transparent;
-  box-sizing: border-box;
+  /* border: 2px dashed transparent; */
+  /* box-sizing: border-box; */
 `;

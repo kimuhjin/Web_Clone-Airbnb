@@ -4,21 +4,14 @@ import { FiSearch } from "react-icons/fi";
 function SearchPanel() {
   const [click1, setClick1] = useState(false);
   const [click2, setClick2] = useState(false);
-  const [click3, setClick3] = useState(false);
+
   const onclick1 = () => {
     setClick1(true);
     setClick2(false);
-    setClick3(false);
   };
   const onclick2 = () => {
     setClick1(false);
     setClick2(true);
-    setClick3(false);
-  };
-  const onclick3 = () => {
-    setClick1(false);
-    setClick2(false);
-    setClick3(true);
   };
 
   return (

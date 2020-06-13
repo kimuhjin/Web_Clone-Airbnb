@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import styled from "styled-components";
 import { FiChevronDown } from "react-icons/fi";
 
-import More from "./Components/Header/More";
+// import More from "./Components/Header/More";
 function Header({ scroll }) {
   const [Language, setLanguage] = useState(false);
   const onclick = () => {
@@ -35,11 +35,11 @@ function Header({ scroll }) {
 }
 
 export default Header;
-const LanguageBox = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: red;
-`;
+// const LanguageBox = styled.div`
+//   width: 100px;
+//   height: 100px;
+//   background-color: red;
+// `;
 const Icons = styled.div`
   display: flex;
   justify-content: space-between;

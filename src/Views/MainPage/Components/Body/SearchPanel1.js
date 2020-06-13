@@ -1,10 +1,15 @@
 import React, { Fragment, useState } from "react";
 import styled from "styled-components";
 import { FiSearch } from "react-icons/fi";
+import SearchPanelBtn from "./SearchPanelBtn";
+
 function SearchPanel() {
   const [click1, setClick1] = useState(false);
   const [click2, setClick2] = useState(false);
   const [click3, setClick3] = useState(false);
+  const [Adult, setAdult] = useState(0);
+  const [Child, setChild] = useState(0);
+  const [Baby, setBaby] = useState(0);
   const onclick1 = () => {
     setClick1(true);
     setClick2(false);
@@ -20,24 +25,60 @@ function SearchPanel() {
     setClick2(false);
     setClick3(true);
   };
-
+  const onPlusAdult = () => {
+    setAdult(Adult + 1);
+  };
+  const onMinusAdult = () => {
+    setAdult(Adult - 1);
+  };
+  const onPlusChild = () => {
+    setChild(Child + 1);
+  };
+  const onMinusChild = () => {
+    setChild(Child - 1);
+  };
+  const onPlusBaby = () => {
+    setBaby(Baby + 1);
+  };
+  const onMinusBaby = () => {
+    setBaby(Baby - 1);
+  };
   return (
     <Fragment>
       <SearchPanelContainer>
-        <Panel onClick={onclick1} click={click1}>
-          <Value>위치</Value>
-          <Input placeholder="어디로 여행가세요?" />
-        </Panel>
-        <Panel onClick={onclick2} click={click2}>
-          <Value>체크인/체크아웃</Value>
-          <Logic>날짜 추가</Logic>
-        </Panel>
-
-        <Panel onClick={onclick3} click={click3}>
-          <Value>인원</Value>
-          <Logic>게스트 추가</Logic>
-        </Panel>
-
+        <PanelBox>
+          <Panel onClick={onclick1} click={click1}>
+            <Value>위치</Value>
+            <Input placeholder="어디로 여행가세요?" />
+          </Panel>
+        </PanelBox>
+        <PanelBox>
+          <Panel onClick={onclick2} click={click2}>
+            <Value>체크인/체크아웃</Value>
+            <Logic>날짜 추가</Logic>
+          </Panel>
+        </PanelBox>
+        <PanelBox>
+          <Panel onClick={onclick3} click={click3}>
+            <Value>인원</Value>
+            <Logic>게스트 추가</Logic>
+          </Panel>
+          {click3 && (
+            <GuestContainer>
+              <SearchPanelBtn
+                onMinusAdult={onMinusAdult}
+                onPlusAdult={onPlusAdult}
+                Adult={Adult}
+                onMinusChild={onMinusChild}
+                onPlusChild={onPlusChild}
+                Child={Child}
+                onMinusBaby={onMinusBaby}
+                onPlusBaby={onPlusBaby}
+                Baby={Baby}
+              />
+            </GuestContainer>
+          )}
+        </PanelBox>
         <ButtonContainer>
           <Button>
             <IconBox>
@@ -52,6 +93,23 @@ function SearchPanel() {
 }
 
 export default SearchPanel;
+
+const GuestContainer = styled.div`
+  height: 245px;
+  width: auto;
+  padding: 16px 24px;
+  background-color: white;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.19);
+`;
+const PanelBox = styled.div`
+  flex: 2;
+  align-items: flex-start;
+  /* border: 1px solid red; */
+`;
+
 const IconBox = styled.div`
   color: white;
   margin-right: 4px;
@@ -87,28 +145,30 @@ const Panel = styled.div`
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  flex: 2;
+
   align-items: flex-start;
   height: 100%;
   width: auto;
   padding: 16px 22px;
-  /* min-width: 180px; */
   border: ${(props) =>
     props.click ? "2px solid black" : "2px solid transparent"};
+  border-top-right-radius: ${(props) => (props.click ? "12px" : "")};
+  border-top-left-radius: ${(props) => (props.click ? "12px" : "")};
   background-color: ${(props) => (props.click ? "#f7f7f7" : "")};
   box-sizing: border-box;
-  border-radius: 12px;
   &:hover {
-    border: ${(props) =>
-      props.click ? "2px solid black" : "2px solid transparent"};
+    border: ${(props) => (props.click ? "" : "2px solid lightgray")};
+    border-radius: ${(props) => (props.click ? "" : "12px")};
     box-sizing: border-box;
   }
 `;
 
 const SearchPanelContainer = styled.div`
   display: flex;
+  position: relative;
+  z-index: 50;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex: 7;
   height: 70px;
   width: 100%;
