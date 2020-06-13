@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from "react";
 import styled from "styled-components";
 import { FiChevronDown } from "react-icons/fi";
+import { FaGlobe } from "react-icons/fa";
+import { FaWonSign } from "react-icons/fa";
 
 // import More from "./Components/Header/More";
 function Header({ scroll }) {
@@ -17,11 +19,29 @@ function Header({ scroll }) {
           <LinkBox>
             <Link onClick={onclick}>
               <Icons>
-                <Icon />
+                <Icon>
+                  <FaGlobe size={16} />
+                </Icon>
                 <FiChevronDown size={16} />
               </Icons>
-              {/*<LanguageBox />*/}
+              {Language && (
+                <LanguageContainer>
+                  <LanguageBox>
+                    <GlobeIcon>
+                      <FaGlobe size={16} />
+                    </GlobeIcon>
+                    <Desc>한국어 (KR)</Desc>
+                  </LanguageBox>
+                  <CurrencyBox>
+                    <CurrencyIcon>
+                      <FaWonSign size={16} />
+                    </CurrencyIcon>
+                    <Desc>KRW</Desc>
+                  </CurrencyBox>
+                </LanguageContainer>
+              )}
             </Link>
+
             <Link>숙소 호스트 되기</Link>
             <Link>체험 호스팅하기</Link>
             <Link>도움말</Link>
@@ -35,21 +55,52 @@ function Header({ scroll }) {
 }
 
 export default Header;
-// const LanguageBox = styled.div`
-//   width: 100px;
-//   height: 100px;
-//   background-color: red;
-// `;
+const Desc = styled.div`
+  margin-left: 10px;
+`;
+const GlobeIcon = styled.div``;
+const CurrencyIcon = styled.div``;
+const LanguageBox = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+
+  padding: 0px 10px;
+  &:hover {
+    background-color: #f7f7f7;
+  }
+`;
+const CurrencyBox = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+
+  padding: 0px 10px;
+  &:hover {
+    background-color: #f7f7f7;
+  }
+`;
+const LanguageContainer = styled.div`
+  position: absolute;
+  top: 120%;
+  right: 0%;
+  width: 180px;
+  height: 100px;
+  background-color: white;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0.18, 0.18);
+  border-radius: 12px;
+  padding: 10px 0px;
+  overflow: hidden;
+`;
 const Icons = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 const Icon = styled.div`
-  width: 16px;
-  height: 16px;
-  background-size: 100% auto;
-  background-image: url("https://toppng.com/uploads/preview/globe-earth-icon-icon-internet-free-11553469590q0vs340qlw.png");
-  background-color: transparent;
   margin-right: 5px;
 `;
 
@@ -76,6 +127,7 @@ const SignUp = styled.div`
 const Link = styled.div`
   cursor: pointer;
   display: flex;
+  position: relative;
   /* flex-direction: column; */
 
   justify-content: center;
