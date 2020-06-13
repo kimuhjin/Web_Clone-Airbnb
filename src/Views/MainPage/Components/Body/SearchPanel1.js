@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from "react";
 import styled from "styled-components";
 import { FiSearch } from "react-icons/fi";
+import { MdClose } from "react-icons/md";
+
 import SearchPanelBtn from "./SearchPanelBtn";
 
 function SearchPanel() {
@@ -32,16 +34,27 @@ function SearchPanel() {
     setAdult(Adult - 1);
   };
   const onPlusChild = () => {
+    if (Adult === 0) {
+      setAdult(1);
+    }
     setChild(Child + 1);
   };
   const onMinusChild = () => {
     setChild(Child - 1);
   };
   const onPlusBaby = () => {
+    if (Adult === 0) {
+      setAdult(1);
+    }
     setBaby(Baby + 1);
   };
   const onMinusBaby = () => {
     setBaby(Baby - 1);
+  };
+  const onReset = () => {
+    setAdult(0);
+    setBaby(0);
+    setChild(0);
   };
   return (
     <Fragment>
@@ -61,7 +74,18 @@ function SearchPanel() {
         <PanelBox>
           <Panel onClick={onclick3} click={click3}>
             <Value>인원</Value>
-            <Logic>게스트 추가</Logic>
+            {Adult === 0 && <Logic>게스트 추가</Logic>}
+            {Adult >= 1 && (
+              <GuestNum>
+                게스트 {Adult + Child}명
+                {Baby >= 1 ? ", 유아" + " " + `${Baby}` + "명" : ""}
+              </GuestNum>
+            )}
+            {(Adult > 0 || Child > 0 || Baby > 0) && (
+              <CancelBtn onClick={onReset}>
+                <MdClose />
+              </CancelBtn>
+            )}
           </Panel>
           {click3 && (
             <GuestContainer>
@@ -93,7 +117,28 @@ function SearchPanel() {
 }
 
 export default SearchPanel;
+const CancelBtn = styled.button`
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 35%;
+  right: 5%;
+  height: 24px;
+  width: 24px;
+  background-color: #ebebeb;
+  border-radius: 50%;
+  border: 1px solid transparent;
+`;
 
+const GuestNum = styled.div`
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  color: #222222;
+`;
 const GuestContainer = styled.div`
   height: 245px;
   width: auto;
@@ -142,6 +187,7 @@ const Value = styled.div`
 `;
 
 const Panel = styled.div`
+  position: relative;
   cursor: pointer;
   display: flex;
   flex-direction: column;

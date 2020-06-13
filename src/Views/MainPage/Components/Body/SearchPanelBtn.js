@@ -53,11 +53,17 @@ function SearchPanelBtn({
               <AiOutlineMinus />
             </Minus>
           )}
-
           <Num>{Child}</Num>
-          <Plus onClick={onPlusChild}>
-            <AiOutlinePlus />
-          </Plus>
+          {Child >= 5 && (
+            <PlusDisable disabled>
+              <AiOutlinePlus />
+            </PlusDisable>
+          )}
+          {Child < 5 && (
+            <Plus onClick={onPlusChild}>
+              <AiOutlinePlus />
+            </Plus>
+          )}
         </ControlBox>
       </LabelContainer>
       <LabelContainer>
@@ -76,11 +82,17 @@ function SearchPanelBtn({
               <AiOutlineMinus />
             </Minus>
           )}
-
           <Num>{Baby}</Num>
-          <Plus onClick={onPlusBaby}>
-            <AiOutlinePlus />
-          </Plus>
+          {Baby >= 5 && (
+            <PlusDisable disabled>
+              <AiOutlinePlus />
+            </PlusDisable>
+          )}
+          {Baby < 5 && (
+            <Plus onClick={onPlusBaby}>
+              <AiOutlinePlus />
+            </Plus>
+          )}
         </ControlBox>
       </LabelContainer>
     </Fragment>
@@ -89,6 +101,17 @@ function SearchPanelBtn({
 
 export default SearchPanelBtn;
 const MinusDisable = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(230, 230, 230);
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: 1px solid rgb(230, 230, 230);
+  background-color: transparent;
+`;
+const PlusDisable = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
