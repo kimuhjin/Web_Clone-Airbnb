@@ -212,7 +212,6 @@ const Panel = styled.div`
 const SearchPanelContainer = styled.div`
   display: flex;
   position: relative;
-  z-index: 50;
   justify-content: space-between;
   align-items: flex-start;
   flex: 7;
