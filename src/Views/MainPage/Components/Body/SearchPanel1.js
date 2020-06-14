@@ -118,6 +118,7 @@ function SearchPanel() {
 
 export default SearchPanel;
 const CancelBtn = styled.button`
+  outline: none;
   cursor: pointer;
   position: absolute;
   display: flex;
@@ -230,6 +231,7 @@ const ButtonContainer = styled.div`
   align-items: center;
 `;
 const Button = styled.button`
+  outline: none;
   cursor: pointer;
   display: flex;
   justify-content: center;

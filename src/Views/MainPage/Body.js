@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 import Search from "./Components/Body/Search";
 import Explore from "./Components/Body/Explore";
-import Grid from "./Components/Body/Grid";
+import Experience from "./Components/Body/Experience";
 
 function Body() {
   return (
@@ -10,7 +10,7 @@ function Body() {
       <BodyContainer>
         <Search />
         <Explore />
-        <Grid />
+        <Experience />
       </BodyContainer>
     </Fragment>
   );

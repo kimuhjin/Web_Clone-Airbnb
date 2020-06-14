@@ -78,6 +78,7 @@ const Article = styled.div`
   color: #717171;
 `;
 const CardContainer = styled.div`
+  cursor: pointer;
   flex: 1;
   height: 266px;
   width: 100%;

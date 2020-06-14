@@ -124,6 +124,7 @@ const PlusDisable = styled.button`
 `;
 
 const Minus = styled.button`
+  outline: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -136,6 +137,7 @@ const Minus = styled.button`
   background-color: transparent;
 `;
 const Plus = styled.button`
+  outline: none;
   cursor: pointer;
   display: flex;
   background-color: transparent;

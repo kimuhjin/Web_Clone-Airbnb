@@ -67,7 +67,7 @@ const LanguageBox = styled.div`
   width: 100%;
   height: 50%;
 
-  padding: 0px 10px;
+  padding: 0px 20px;
   &:hover {
     background-color: #f7f7f7;
   }
@@ -79,7 +79,7 @@ const CurrencyBox = styled.div`
   width: 100%;
   height: 50%;
 
-  padding: 0px 10px;
+  padding: 0px 20px;
   &:hover {
     background-color: #f7f7f7;
   }
